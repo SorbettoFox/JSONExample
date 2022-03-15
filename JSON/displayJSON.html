@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using jQuery Ajax with JSON</title>
+    <script type="text/javascript"
+            src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=hbQYjy89YvD7Hji1afZi9Jx9kf2zlWp_5idfI6hClWrpC3RDooSBpQONvcUPLo1zUJlzCkfIhmpZ0KAFgf5zQzngip0FY8gIjff9OsczjR4b-EQo2RoQpwiz2ubJSbik"
+            charset="UTF-8"></script>
+</head>
+<body>
+
+<button id="get">Get JSON Data</button>
+<div id="output"></div>
+
+<script src="//code.jquery.com/jquery.js"></script>
+
+<script>
+    $("#get").on("click", function () {
+
+        $.getJSON("video_games.json", function (result) {
+
+            $.each(result, function (index, item) {
+
+                $("#output").append(index + " - " + item.Title
+                    + " " + item.Metadata.Genres + ", " + item.Release.Year + " " + item.Metadata.Publishers + "<br>");
+
+            });
+        });
+    });
+</script>
+</body>
+</html>
